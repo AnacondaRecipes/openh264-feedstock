@@ -25,7 +25,8 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - pkg-config
-    - nasm  # [not (osx and arm64)]
+    - nasm >=2.10.06  # [not (osx and arm64)]
+    - nasm <2.11.08  # [osx and (not arm64)]
     - make  # [unix]
   host:
     - zlib
