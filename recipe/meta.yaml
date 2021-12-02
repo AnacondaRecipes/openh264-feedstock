@@ -29,7 +29,6 @@ requirements:
     - nasm <2.11.08  # [osx and (not arm64)]
     - make  # [unix]
   host:
-    - zlib
 
 test:
   commands:
