@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 make PREFIX=$PREFIX -j${CPU_COUNT}
 make PREFIX=$PREFIX install
 
