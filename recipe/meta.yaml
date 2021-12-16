@@ -1,5 +1,5 @@
 {% set name = "openh264" %}
-{% set version = "2.1.1" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name }}
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-v{{ version }}.tar.gz
   url: https://github.com/cisco/openh264/archive/v{{ version }}.tar.gz
-  sha256: af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678
+  sha256: 27f185d478066bad0c8837f4554cd8d69cca1d55d5f3dc6a43a8cef1fe6c005f
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     # new so names and compatibility changes on minor version
