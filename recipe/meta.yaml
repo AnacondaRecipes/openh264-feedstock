@@ -17,6 +17,8 @@ build:
     # new so names and compatibility changes on minor version
     # https://abi-laboratory.pro/?view=timeline&l=openh264
     - {{ pin_subpackage('openh264', max_pin='x.x') }}
+  ignore_run_exports:
+    - zlib
 
 requirements:
   build:
