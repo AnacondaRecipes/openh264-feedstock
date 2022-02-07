@@ -44,7 +44,7 @@ about:
   license_file: LICENSE
   summary: OpenH264 is a codec library which supports H.264 encoding and decoding
   dev_url: https://github.com/cisco/openh264
-  doc_url: https://github.com/cisco/openh264
+  doc_url: https://github.com/cisco/openh264/tree/master/docs
 
 extra:
   recipe-maintainers:
