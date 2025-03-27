@@ -38,7 +38,7 @@ test:
     - test -f $PREFIX/lib/libopenh264.so            # [linux]
 
 about:
-  home: http://www.openh264.org/
+  home: https://www.openh264.org/
   license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE
