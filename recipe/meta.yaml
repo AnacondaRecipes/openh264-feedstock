@@ -1,5 +1,5 @@
 {% set name = "openh264" %}
-{% set version = "2.1.1" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-v{{ version }}.tar.gz
   url: https://github.com/cisco/openh264/archive/v{{ version }}.tar.gz
-  sha256: af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678
+  sha256: 558544ad358283a7ab2930d69a9ceddf913f4a51ee9bf1bfb9e377322af81a69
 
 build:
   number: 0
@@ -38,11 +38,12 @@ test:
     - test -f $PREFIX/lib/libopenh264.so            # [linux]
 
 about:
-  home: http://www.openh264.org/
+  home: https://www.openh264.org/
   license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE
   summary: OpenH264 is a codec library which supports H.264 encoding and decoding
+  description: OpenH264 is a codec library which supports H.264 encoding and decoding
   dev_url: https://github.com/cisco/openh264
   doc_url: https://github.com/cisco/openh264
 
