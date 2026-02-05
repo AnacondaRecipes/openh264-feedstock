@@ -6,39 +6,40 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-v{{ version }}.tar.gz
-  url: https://github.com/cisco/openh264/archive/v{{ version }}.tar.gz
+  url: https://github.com/cisco/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 558544ad358283a7ab2930d69a9ceddf913f4a51ee9bf1bfb9e377322af81a69
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
   run_exports:
     # new so names and compatibility changes on minor version
     # https://abi-laboratory.pro/?view=timeline&l=openh264
     - {{ pin_subpackage('openh264', max_pin='x.x') }}
-  ignore_run_exports:
-    - zlib
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - pkg-config
-    - nasm  # [x86]
-    - make  # [unix]
-  host:
-    - zlib
+    - nasm
+    - make         # [unix]
+    - meson        # [win]
+    - ninja-base   # [win]
 
 test:
   commands:
-    - h264enc -h                                    # [not win]
-    - test -f $PREFIX/bin/h264dec                   # [not win]
-    - test -f $PREFIX/lib/libopenh264.dylib         # [osx]
-    - test -f $PREFIX/lib/libopenh264.so            # [linux]
+    - test -f ${PREFIX}/bin/h264dec                   # [unix]
+    - test -f ${PREFIX}/lib/libopenh264${SHLIB_EXT}   # [unix]
+    - if not exist %PREFIX%\\Library\\bin\\openh264-7.dll exit 1          # [win]
+    - if not exist %PREFIX%\\Library\\lib\\openh264.lib exit 1            # [win]
+    - if not exist %PREFIX%\\Library\\lib\\pkgconfig\\openh264.pc exit 1  # [win]
+    - h264dec | grep welsdec.cfg       # [unix]
+    - h264dec | findstr welsdec.cfg    # [win]
+    - h264enc -h
 
 about:
-  home: https://www.openh264.org/
+  home: https://www.openh264.org
   license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE
