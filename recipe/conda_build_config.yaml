@@ -1,0 +1,8 @@
+c_compiler:                # [win and arm64]
+  - clang                  # [win and arm64]
+cxx_compiler:              # [win and arm64]
+  - clang                  # [win and arm64]
+c_compiler_version:        # [win and arm64]
+  - 20                     # [win and arm64]
+cxx_compiler_version:      # [win and arm64]
+  - 20                     # [win and arm64]

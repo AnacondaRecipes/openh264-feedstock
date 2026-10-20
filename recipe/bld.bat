@@ -1,5 +1,10 @@
 @echo on
 
+if "%target_platform%"=="win-arm64" (
+  set "CC=clang-cl"
+  set "CXX=clang-cl"
+)
+
 meson setup builddir ^
   --prefix="%LIBRARY_PREFIX%" ^
   --buildtype=release ^
